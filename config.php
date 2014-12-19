@@ -1,7 +1,6 @@
 <?php
 # Hard-code your DB's credentials into the line below. 
-#$dbh = new PDO("mysql:host=localhost;dbname=health", "[user]", "[password]");
-$dbh = new PDO("mysql:host=localhost;dbname=health", "root", "faH57!#2bNn@");
+$dbh = new PDO("mysql:host=localhost;dbname=health", "[user]", "[password]");
 
 # Path to xml directory where feeds will be placed. 
 # An "xml" file can be found in this plugin's structure already. 
