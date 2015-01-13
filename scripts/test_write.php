@@ -6,7 +6,7 @@ $stmt_top = $dbh->prepare("select id,address from health.services");
 $stmt_top->execute(array()); 
   while ($row_top = $stmt_top->fetch()) {
 	$serviceID = $row_top['id']; 
-    $url = $row_top['address'];
+    	$url = $row_top['address'];
 	$file = $xml_path.$serviceID.'.xml';
 	checkit($serviceID,$file,$url);
 	$dbh = new PDO("mysql:host=localhost;dbname=health", "root", "faH57!#2bNn@");
