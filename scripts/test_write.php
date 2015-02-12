@@ -10,7 +10,7 @@ $stmt_top->execute(array());
     	$url = $row_top['address'];
 	$file = $xml_path.$serviceID.'.xml';
 	checkit($serviceID,$file,$url,$name);
-	$dbh = new PDO("mysql:host=localhost;dbname=health", "root", "faH57!#2bNn@");
+	$dbh = new PDO("mysql:host=localhost;dbname=health", "root", "[pwd]");
 	$stmt_bottom = $dbh->prepare("INSERT INTO health.stat (id,stat) VALUES (?,?)");
 	$stmt_bottom->execute(array($serviceID,$up)); 
   }
@@ -20,7 +20,7 @@ function checkit ($serviceID,$file,$url,$name) {
 
 	global $up;
 
-	$dbh = new PDO("mysql:host=localhost;dbname=health", "root", "faH57!#2bNn@");
+	$dbh = new PDO("mysql:host=localhost;dbname=health", "root", "[pwd]");
 	$stmt = $dbh->prepare("select stat,timestamp from health.stat where id=? order by timestamp DESC limit 1");
 	$stmt->execute(array($serviceID)); 
 
