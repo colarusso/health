@@ -63,7 +63,7 @@ function writeRSS ($file,$url,$up,$name,$httpcode) {
 		if ($up == 1) {
 			$replacement .= "		<title>$name error(s) cleared.</title>\n";
 		} else {
-			$replacement .= "		<title>$name error: $httpcode</title>\n";
+			$replacement .= "		<title>$name status: $httpcode</title>\n";
 		}
 		$uid = time();
 		$replacement .= "		<link>$url/#$uid</link>\n";
