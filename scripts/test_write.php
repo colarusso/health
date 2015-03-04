@@ -33,10 +33,18 @@ function checkit ($serviceID,$file,$url,$name) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$data = curl_exec($ch);
 	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	curl_close($ch);
 	if($httpcode>=200 && $httpcode<300){
-	  $up = "1";
+		$up = "1";
+	} else if ($httpcode==0) {
+		// sleep for 10 seconds
+		sleep(10);
+		$data = curl_exec($ch);
+		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		if($httpcode>=200 && $httpcode<300){
+		  $up = "1";
+		}	
 	}
+	curl_close($ch);
 
 	while ($row = $stmt->fetch (PDO::FETCH_OBJ)) {
 		if ($row->stat == $up) {
