@@ -31,6 +31,7 @@ function checkit ($serviceID,$file,$url,$name) {
 	curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 GTB5');
 	$data = curl_exec($ch);
 	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	if($httpcode>=200 && $httpcode<300){
